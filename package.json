@@ -1,0 +1,28 @@
+{
+  "name": "metions-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node node_modules/nodemon/bin/nodemon bin/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joirneto/metions-api.git"
+  },
+  "keywords": [],
+  "author": "Joir Neto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joirneto/metions-api/issues"
+  },
+  "homepage": "https://github.com/joirneto/metions-api#readme",
+  "dependencies": {
+    "debug": "^4.3.2",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
