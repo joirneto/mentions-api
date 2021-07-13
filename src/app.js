@@ -1,8 +1,53 @@
-const express = require('express')
+//Config
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
 
-const app = express()
+//App
+const app = express();
 
-const indexRoutes = require('./index-routes')
-app.use('/', indexRoutes)
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
-module.exports = app
+//Database
+mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
+  useUnifiedTopology: true,
+  useFindAndModify: true,
+  useNewUrlParser: true,
+  useCreateIndex: true
+});
+
+const db = mongoose.connection;
+
+db.on('connected', () => {
+  console.log('Mongoose default connection is open');
+});
+
+db.on('error', err => {
+  console.log(`Mongoose default connection has occured \n${err}`);
+});
+
+db.on('disconnected', () => {
+  console.log('Mongoose default connection is disconnected');
+});
+
+process.on('SIGINT', () => {
+  db.close(() => {
+      console.log(
+      'Mongoose default connection is disconnected due to application termination'
+      );
+      process.exit(0);
+  });
+});
+
+//Load Models
+const Metions = require('./models/metions')
+
+//Load routes
+const indexRoutes = require('./routes/index-routes');
+app.use('/', indexRoutes);
+
+const metionsRoutes = require('./routes/metions-routes');
+app.use('/metions', metionsRoutes);
+
+module.exports = app;
