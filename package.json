@@ -1,5 +1,5 @@
 {
-  "name": "metions-api",
+  "name": "mentions-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joirneto/metions-api.git"
+    "url": "git+https://github.com/joirneto/mentions-api.git"
   },
   "keywords": [],
   "author": "Joir Neto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joirneto/metions-api/issues"
+    "url": "https://github.com/joirneto/mentions-api/issues"
   },
-  "homepage": "https://github.com/joirneto/metions-api#readme",
+  "homepage": "https://github.com/joirneto/mentions-api#readme",
   "dependencies": {
     "debug": "^4.3.2",
     "dotenv": "^10.0.0",

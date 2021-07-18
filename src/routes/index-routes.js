@@ -1,10 +1,10 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
-router.get('/', (req, res, next)=>{
+router.get('/', (req, res, next) => {
   res.status(200).send({
-    title: 'MetionsAPI',
-    version:'1.0.0'
+    title: 'mentionsAPI',
+    version: '1.0.0'
   })
 });
 

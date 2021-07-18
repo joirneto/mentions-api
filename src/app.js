@@ -7,7 +7,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 //Database
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
@@ -33,21 +33,21 @@ db.on('disconnected', () => {
 
 process.on('SIGINT', () => {
   db.close(() => {
-      console.log(
+    console.log(
       'Mongoose default connection is disconnected due to application termination'
-      );
-      process.exit(0);
+    );
+    process.exit(0);
   });
 });
 
 //Load Models
-const Metions = require('./models/metions')
+const mentions = require('./models/mentions')
 
 //Load routes
 const indexRoutes = require('./routes/index-routes');
 app.use('/', indexRoutes);
 
-const metionsRoutes = require('./routes/metions-routes');
-app.use('/metions', metionsRoutes);
+const mentionsRoutes = require('./routes/mentions-routes');
+app.use('/mentions', mentionsRoutes);
 
 module.exports = app;

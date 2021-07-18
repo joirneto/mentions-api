@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  friend:{
+  friend: {
     type: String,
     required: true,
-    trim:true
+    trim: true
   },
-  metion:{
+  mention: {
     type: String,
     required: true
   }
 });
 
-module.exposts = mongoose.model('Metions', schema);
+module.exposts = mongoose.model('mentions', schema);
